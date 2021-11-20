@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Textures/shopping_arcade-wallpaper-1920x1080.jpg" type="Texture" id=1]
+[ext_resource path="res://Textures/Tombras-Group-Office-Worspace.jpg" type="Texture" id=2]
+[ext_resource path="res://Fonts/Lato-Black.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/Shop.gd" type="Script" id=4]
+[ext_resource path="res://Audio/interface-click.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/unlock-game.wav" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+outline_size = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 640, 358 )
+scale = Vector2( 0.666667, 0.67037 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Office" type="TextureButton" parent="."]
+margin_left = 24.0
+margin_top = 32.0
+margin_right = 408.0
+margin_bottom = 248.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Office"]
+margin_left = 88.0
+margin_top = 216.0
+margin_right = 288.0
+margin_bottom = 297.0
+custom_colors/font_color = Color( 0.835294, 0.835294, 0.835294, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Work in office 
++4 per click
+Cost: 10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Label" parent="."]
+margin_top = 664.0
+margin_right = 113.0
+margin_bottom = 725.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="MenuButton" parent="Back"]
+margin_top = 8.0
+margin_right = 120.0
+margin_bottom = 56.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Points" type="Label" parent="."]
+margin_top = 608.0
+margin_right = 133.0
+margin_bottom = 657.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Punkty"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InterfaceSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Unlock" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[connection signal="pressed" from="Office" to="." method="_on_Office_pressed"]
+[connection signal="pressed" from="Back/BackButton" to="." method="_on_BackButton_pressed"]
