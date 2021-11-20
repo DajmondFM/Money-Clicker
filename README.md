@@ -1,2 +1,2 @@
 # Money-Clicker
-My first game.
+[Releases](https://github.com/DajmondFM/Money-Clicker/releases)
